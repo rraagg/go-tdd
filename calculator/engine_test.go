@@ -9,6 +9,10 @@ import (
 	"github.com/rraagg/go-tdd/calculator"
 )
 
+func init() {
+	fmt.Println("init setup")
+}
+
 func setup() {
 	fmt.Println("setting up")
 }
@@ -30,6 +34,9 @@ func TestMain(m *testing.M) {
 
 func TestAdd(t *testing.T) {
 	// Arrange
+	defer func() {
+		fmt.Println("tearing down TestAdd")
+	}()
 	e := calculator.Engine{}
 	x, y := 2.5, 3.5
 	want := 6.0
