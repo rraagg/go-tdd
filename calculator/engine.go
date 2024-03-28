@@ -2,6 +2,10 @@ package calculator
 
 type Engine struct{}
 
+func NewEngine() *Engine {
+	return &Engine{}
+}
+
 func (e *Engine) Add(x, y float64) float64 {
 	return x + y
 }
