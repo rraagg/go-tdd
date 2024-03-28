@@ -32,6 +32,14 @@ func TestMain(m *testing.M) {
 	os.Exit(e)
 }
 
+func BenchmarkAdd(b *testing.B) {
+	e := calculator.Engine{}
+	// run the add function b.N times
+	for i := 0; i < b.N; i++ {
+		e.Add(2, 3)
+	}
+}
+
 func TestAdd(t *testing.T) {
 	// Arrange
 	defer func() {
